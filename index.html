@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Благотворительный сбор на лечение Егора, 18 лет, острый миелобластный лейкоз FLT3-ITD. Прямые переводы — 100% средств на лечение." />
+<title>Help Egor</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/favicon.svg" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&amp;display=swap" rel="stylesheet" />
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "secondary-fixed-dim": "#b8cdac",
+          "surface-container": "#f0eded",
+          "primary-fixed": "#ccebc7",
+          "primary-fixed-dim": "#b0cfad",
+          "tertiary-fixed": "#c6edc3",
+          "on-primary-fixed": "#07200b",
+          "on-secondary-fixed": "#101f0b",
+          "outline-variant": "#c3c8bf",
+          "on-primary": "#ffffff",
+          "secondary": "#526349",
+          "on-secondary-fixed-variant": "#3a4b33",
+          "surface-variant": "#e4e2e1",
+          "on-error": "#ffffff",
+          "surface-bright": "#fbf9f8",
+          "tertiary-fixed-dim": "#abd0a8",
+          "error-container": "#ffdad6",
+          "inverse-surface": "#303030",
+          "on-surface": "#1b1c1c",
+          "surface-tint": "#4a6549",
+          "primary": "#4a6549",
+          "on-tertiary-fixed-variant": "#2e4e2f",
+          "on-primary-fixed-variant": "#334d33",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#1e3e21",
+          "surface-dim": "#dcd9d9",
+          "surface-container-highest": "#e4e2e1",
+          "background": "#fbf9f8",
+          "on-secondary-container": "#57694f",
+          "on-tertiary": "#ffffff",
+          "inverse-primary": "#b0cfad",
+          "primary-container": "#8ba888",
+          "outline": "#737970",
+          "surface-container-high": "#eae8e7",
+          "surface": "#fbf9f8",
+          "on-surface-variant": "#434841",
+          "secondary-fixed": "#d4e9c7",
+          "secondary-container": "#d4e9c7",
+          "surface-container-low": "#f6f3f2",
+          "on-secondary": "#ffffff",
+          "on-background": "#1b1c1c",
+          "inverse-on-surface": "#f3f0f0",
+          "error": "#ba1a1a",
+          "on-error-container": "#93000a",
+          "on-tertiary-fixed": "#022107",
+          "tertiary-container": "#86aa84",
+          "on-primary-container": "#243d24",
+          "tertiary": "#456645"
+        },
+        borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", full: "9999px" },
+        spacing: { xs: "4px", sm: "12px", md: "24px", lg: "48px", xl: "80px", base: "8px", gutter: "24px", "container-max": "1200px" },
+        fontFamily: {
+          "body-lg": ["Roboto"], "body-md": ["Roboto"], "label-md": ["Roboto"],
+          "headline-sm": ["Montserrat"], "headline-md": ["Montserrat"], "headline-lg": ["Montserrat"],
+          "headline-xl": ["Montserrat"], "headline-xl-mobile": ["Montserrat"], "headline-lg-mobile": ["Montserrat"]
+        },
+        fontSize: {
+          "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+          "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+          "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "700" }],
+          "headline-md": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+          "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+          "headline-xl-mobile": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }]
+        }
+      }
+    }
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+  .btn-hover-scale { transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  .btn-hover-scale:hover { transform: scale(1.05); }
+  .soft-shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .hover-shadow { transition: box-shadow 0.3s ease, transform 0.3s ease; }
+  .hover-shadow:hover { box-shadow: 0 8px 24px rgba(74,101,73,0.15); }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4,0,0.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* Gallery carousel */
+  @keyframes scroll-infinite { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .carousel-track { animation: scroll-infinite 45s linear infinite; }
+  .carousel-track:hover { animation-play-state: paused; }
+  .carousel-item { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); cursor: pointer; }
+  .carousel-item:hover { transform: scale(1.04); z-index: 10; }
+
+  /* Lightbox */
+  #lightbox { transition: opacity 0.3s ease; }
+  #lightbox img { transition: transform 0.3s ease; }
+  #docs-modal { transition: opacity 0.3s ease; }
+
+  /* «Две жизни» — диптихи */
+  .reveal-l, .reveal-r { opacity: 0; transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.4,0,0.2,1); }
+  .reveal-l { transform: translateX(-28px); }
+  .reveal-r { transform: translateX(28px); }
+  .reveal-l.is-visible, .reveal-r.is-visible { opacity: 1; transform: translateX(0); }
+
+  .dip-cell picture { display: block; width: 100%; height: 100%; }
+  .dip-cell img { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1), filter 0.6s ease; cursor: pointer; }
+  .dip-cell:hover img { transform: scale(1.04); }
+  .dip-hosp img { filter: saturate(0.45) contrast(1.03); }
+  .dip-hosp:hover img, .dip-hosp:focus-within img { filter: saturate(1); }
+  .dip-cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 32px 12px 10px;
+    background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0));
+    color: #fff; font-family: Roboto, sans-serif; font-size: 12px; line-height: 16px;
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .dip-cap { padding: 48px 24px 16px; font-size: 14px; line-height: 20px; }
+  }
+
+  /* «Дневник» — видео */
+  .diary-video { display: block; width: 100%; background: #000; }
+  .diary-video::cue { background: rgba(0,0,0,0.72); color: #fff; font-family: Roboto, sans-serif; }
+  .diary-quote {
+    border-left: 2px solid #8ba888; padding-left: 12px;
+    font-family: Montserrat, sans-serif; font-size: 18px; line-height: 28px;
+    font-style: italic; color: #1b1c1c;
+  }
+  .diary-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 2px 10px; border-radius: 9999px;
+    font-family: Roboto, sans-serif; font-size: 12px; line-height: 20px;
+  }
+  @media (min-width: 768px) {
+    .diary-quote-r { border-left: 0; border-right: 2px solid #8ba888; padding-left: 0; padding-right: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-l, .reveal-r { opacity: 1; transform: none; transition: none; }
+    .dip-cell img { transition: none; }
+  }
+
+  /* Copy toast */
+  .toast { transition: opacity 0.3s ease, transform 0.3s ease; }
+
+  /* Hero floating blobs */
+  @keyframes float-slow { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(12px,-16px) scale(1.05); } }
+  .blob { animation: float-slow 12s ease-in-out infinite; }
+
+  /* Animated underline for nav links */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 100%; height: 2px;
+    background: #4a6549;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .nav-link:hover::after { transform: scaleX(1); }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+
+<!-- ===== Header ===== -->
+<header class="bg-surface/90 backdrop-blur-md shadow-sm sticky top-0 z-50 w-full">
+  <div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+    <a href="#top" class="font-headline-md text-[17px] md:text-[19px] lg:text-headline-md font-bold text-primary leading-tight min-w-0 mr-sm" data-i18n="brand">Дар жизни для Егора Барахтенко</a>
+    <nav class="hidden md:flex gap-md items-center font-label-md text-label-md text-on-surface-variant">
+      <a class="nav-link hover:text-primary transition-colors duration-300" href="#about" data-i18n="nav.about">О проекте</a>
+      <a class="nav-link hover:text-primary transition-colors duration-300" href="#story" data-i18n="nav.story">История</a>
+      <a class="nav-link hover:text-primary transition-colors duration-300" href="#documents" data-i18n="nav.documents">Документы</a>
+      <a class="nav-link hover:text-primary transition-colors duration-300" href="#contact" data-i18n="nav.contact">Контакты</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-xs">
+      <!-- Language switcher (desktop) -->
+      <div class="relative" id="lang-switch">
+        <button id="lang-btn" class="flex items-center gap-xs px-sm py-xs border border-outline rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors" aria-haspopup="true" aria-expanded="false">
+          <span class="material-symbols-outlined text-[18px]">language</span>
+          <span data-lang-current>RU</span>
+          <span class="material-symbols-outlined text-[18px]">expand_more</span>
+        </button>
+        <div id="lang-menu" class="hidden absolute right-0 mt-xs w-40 bg-white rounded-lg shadow-lg border border-outline-variant/20 overflow-hidden z-50">
+          <button class="lang-option w-full text-left px-md py-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors" data-lang="ru">Русский</button>
+          <button class="lang-option w-full text-left px-md py-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors" data-lang="en">English</button>
+          <button class="lang-option w-full text-left px-md py-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors" data-lang="es">Español</button>
+          <button class="lang-option w-full text-left px-md py-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors" data-lang="pt">Português</button>
+          <button class="lang-option w-full text-left px-md py-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors" data-lang="fr">Français</button>
+          <button class="lang-option w-full text-left px-md py-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors" data-lang="de">Deutsch</button>
+          <button class="lang-option w-full text-left px-md py-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors" data-lang="zh">中文</button>
+        </div>
+      </div>
+      <a class="bg-primary-container text-on-primary font-label-md text-label-md px-md py-sm rounded-lg btn-hover-scale shadow-sm" href="#donate" data-i18n="nav.donate">Помочь сейчас</a>
+    </div>
+    <button id="menu-toggle" aria-label="Открыть меню" class="md:hidden text-primary p-xs">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-outline-variant/20 px-gutter py-md">
+    <nav class="flex flex-col gap-md font-label-md text-label-md text-on-surface-variant">
+      <a class="hover:text-primary" href="#about" data-i18n="nav.about">О проекте</a>
+      <a class="hover:text-primary" href="#story" data-i18n="nav.story">История</a>
+      <a class="hover:text-primary" href="#documents" data-i18n="nav.documents">Документы</a>
+      <a class="hover:text-primary" href="#contact" data-i18n="nav.contact">Контакты</a>
+      <a class="bg-primary-container text-on-primary text-center px-md py-sm rounded-lg" href="#donate" data-i18n="nav.donate">Помочь сейчас</a>
+      <!-- Language switcher (mobile) -->
+      <div class="flex flex-wrap gap-xs pt-sm border-t border-outline-variant/20">
+        <button class="lang-option px-sm py-xs border border-outline-variant/40 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-lang="ru">RU</button>
+        <button class="lang-option px-sm py-xs border border-outline-variant/40 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-lang="en">EN</button>
+        <button class="lang-option px-sm py-xs border border-outline-variant/40 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-lang="es">ES</button>
+        <button class="lang-option px-sm py-xs border border-outline-variant/40 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-lang="pt">PT</button>
+        <button class="lang-option px-sm py-xs border border-outline-variant/40 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-lang="fr">FR</button>
+        <button class="lang-option px-sm py-xs border border-outline-variant/40 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-lang="de">DE</button>
+        <button class="lang-option px-sm py-xs border border-outline-variant/40 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-lang="zh">中文</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== Hero ===== -->
+<section class="relative py-xl bg-white overflow-hidden md:min-h-[calc(100vh-5rem)] md:flex md:items-center" id="about">
+  <div class="absolute inset-0 bg-gradient-to-b from-primary-container/20 to-transparent pointer-events-none"></div>
+  <div class="blob absolute -top-20 -right-24 w-80 h-80 rounded-full bg-primary-container/20 blur-3xl pointer-events-none"></div>
+  <div class="relative px-gutter max-w-container-max mx-auto w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+      <div class="order-2 md:order-1 flex flex-col gap-md reveal">
+        <h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary" data-i18n-html="hero.title">
+          Помогите Егору победить болезнь <br />и вернуться к жизни
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant" data-i18n="hero.lead">
+          Меня зовут Егор, мне 18 лет, я старший сын в многодетной семье из г. Якутска.
+          С декабря 2024 года борюсь с острым миелобластным лейкозом FLT3-ITD.
+          Сейчас единственный шанс выздороветь — лечение в зарубежной клинике.
+        </p>
+
+        <!-- Treatment cost -->
+        <div class="bg-surface-container-lowest rounded-xl p-md soft-shadow mt-sm inline-flex items-center gap-sm self-start">
+          <span class="w-12 h-12 flex-shrink-0 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[26px]">local_hospital</span>
+          </span>
+          <span class="flex flex-col">
+            <span class="font-label-md text-label-md text-on-surface-variant" data-i18n="hero.treatment">Лечение</span>
+            <span class="font-headline-md text-headline-md text-primary font-bold">$100,000</span>
+          </span>
+        </div>
+
+        <div class="mt-md flex flex-wrap gap-sm">
+          <a class="inline-flex items-center gap-xs bg-primary-container text-on-primary font-label-md text-label-md px-lg py-sm rounded-lg btn-hover-scale shadow-sm" href="#donate">
+            <span class="material-symbols-outlined text-[20px]">volunteer_activism</span> <span data-i18n="hero.cta_help">Хочу помочь</span>
+          </a>
+          <a class="inline-flex items-center gap-xs border-2 border-primary-container text-primary font-label-md text-label-md px-lg py-sm rounded-lg btn-hover-scale" href="#story" data-i18n="hero.cta_story">
+            Узнать историю
+          </a>
+        </div>
+      </div>
+
+      <div class="order-1 md:order-2 rounded-xl overflow-hidden shadow-sm aspect-square md:aspect-auto md:h-[620px] reveal">
+        <img alt="Портрет Егора" class="w-full h-full object-cover" src="assets/photos/egor-07.jpg" loading="eager" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Story ===== -->
+<section class="py-xl border-t border-primary-container/15 relative" id="story"
+  style="background-image:url('assets/backgrounds/story-bg.png');background-size:cover;background-position:center;">
+  <div class="px-gutter max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+      <div class="bg-white/70 backdrop-blur-md p-md rounded-xl reveal">
+        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-md" data-i18n="story.title">История Егора</h2>
+        <div class="space-y-sm text-on-surface-variant font-body-md text-body-md">
+          <p data-i18n="story.p1">Егор родился в 2008 году в городе Якутске. В большой и дружной семье — он старший из троих детей, пример и опора для младших. Всегда готов помочь, весёлый отзывчивый парень. Огромное количество разных увлечений, от плавания и единоборств до музыки. В общем, дышал полной грудью.</p>
+          <p data-i18n="story.p2">Но в 2024 году жизнь круто изменилась. Егору диагностировали миелодиспластический синдром. Сын прошёл через первую трансплантацию костного мозга в Институте детской онкологии, гематологии и трансплантологии им. Р. М. Горбачёвой (г. Санкт-Петербург), которая не дала результата. Болезнь мутировала в острый миелобластный лейкоз с мутацией FLT3-ITD.</p>
+          <p data-i18n="story.p3">Пережил множество курсов высокодозной химиотерапии, вторую трансплантацию (от отца), затем лечение по протоколу CAR-T в центре Димы Рогачёва в Москве. К сожалению, российские врачи констатировали отсутствие результатов и предложили только паллиативную помощь.</p>
+          <p data-i18n-html="story.p4">Мы не смирились и начали самостоятельный поиск высокотехнологичной помощи за рубежом, которой нет в нашей стране. На данный момент получен ответ из клиники Борен (Beijing GoBroad Boren Hospital). Нас готовы принять для лечения Егора, но стоимость терапии — первые два этапа — составляет <b>100 000 долларов США</b>.</p>
+          <p data-i18n="story.p5">Лечение состоит из двух этапов: 1 этап — оценка (обследование); 2 этап — противорецидивная терапия. Последующее лечение (трансплантация костного мозга) будет основано на результатах этапа 2 и обсуждается позже.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-sm h-full reveal">
+        <div class="rounded-xl overflow-hidden soft-shadow"><img alt="Егор" class="w-full h-full object-cover carousel-item" data-gallery src="assets/photos/egor-sister-closeup.jpg" loading="lazy" /></div>
+        <div class="rounded-xl overflow-hidden soft-shadow"><img alt="Егор" class="w-full h-48 md:h-full object-cover carousel-item" data-gallery src="assets/photos/egor-12.jpg" loading="lazy" /></div>
+        <div class="rounded-xl overflow-hidden soft-shadow col-span-2"><img alt="Егор с сестрой" class="w-full h-48 md:h-full object-cover carousel-item" data-gallery src="assets/photos/egor-09.jpg" loading="lazy" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Gallery Carousel ===== -->
+<section class="py-lg bg-white border-t border-primary-container/15 overflow-hidden" id="gallery">
+  <div class="w-full overflow-hidden">
+    <div class="carousel-track flex w-max" id="carousel-track"><!-- filled by JS --></div>
+  </div>
+</section>
+
+<!-- ===== Two Lives — diptych gallery ===== -->
+<section class="py-xl bg-surface-container-low border-t border-primary-container/15" id="two-lives">
+  <div class="px-gutter max-w-container-max mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-lg reveal">
+      <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-xs" data-i18n="twolives.title">Две жизни</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="twolives.subtitle">
+        Один и тот же человек, одни и те же глаза. Слева — жизнь, которая была. Справа — та, что началась после диагноза.
+      </p>
+      <div class="flex items-center justify-center gap-sm mt-md font-label-md text-label-md text-on-surface-variant/80">
+        <span class="inline-flex items-center gap-xs"><span class="w-2 h-2 rounded-full bg-primary-container"></span><span data-i18n="twolives.legend_before">до болезни</span></span>
+        <span class="w-6 h-px bg-outline-variant"></span>
+        <span class="inline-flex items-center gap-xs"><span class="w-2 h-2 rounded-full bg-outline"></span><span data-i18n="twolives.legend_after">после диагноза</span></span>
+      </div>
+    </div>
+    <div id="two-lives-grid" class="flex flex-col gap-md md:gap-lg"><!-- filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== Two Lives — finale band ===== -->
+<section class="relative py-xl bg-primary overflow-hidden">
+  <div class="blob absolute -bottom-24 -left-20 w-80 h-80 rounded-full bg-white/10 blur-3xl pointer-events-none"></div>
+  <div class="relative px-gutter max-w-container-max mx-auto flex flex-col items-center text-center gap-md">
+    <div class="w-full max-w-[280px] rounded-xl overflow-hidden shadow-2xl reveal">
+      <picture>
+        <source srcset="assets/photos/story/finale.webp" type="image/webp" />
+        <img src="assets/photos/story/finale.jpg" class="w-full h-auto object-cover" data-gallery data-i18n-alt="twolives.finale" alt="Егор" loading="lazy" />
+      </picture>
+    </div>
+    <p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white max-w-xl reveal" data-i18n="twolives.finale">Ему 18. Он хочет жить.</p>
+    <a class="inline-flex items-center gap-xs bg-white text-primary font-label-md text-label-md px-lg py-sm rounded-lg btn-hover-scale shadow-sm reveal" href="#donate">
+      <span class="material-symbols-outlined text-[20px]">volunteer_activism</span><span data-i18n="hero.cta_help">Хочу помочь</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== Video diary ===== -->
+<section class="py-xl bg-white border-t border-primary-container/15" id="diary">
+  <div class="px-gutter max-w-container-max mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-lg reveal">
+      <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-xs" data-i18n="diary.title">Видеодневник</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="diary.subtitle">
+        Семь коротких видео. Это не отчёт о болезни — это голос Егора и людей, которые его любят.
+      </p>
+    </div>
+    <div id="diary-list" class="flex flex-col gap-lg md:gap-xl"><!-- filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== Mother's Word ===== -->
+<section class="py-xl bg-surface-container-low border-t border-primary-container/15">
+  <div class="px-gutter max-w-container-max mx-auto">
+    <div class="flex flex-col md:flex-row items-center gap-lg reveal">
+      <div class="w-full md:w-1/3">
+        <div class="rounded-xl overflow-hidden soft-shadow aspect-square">
+          <img alt="Мама Егора" class="w-full h-full object-cover" src="assets/photos/egor-08.jpg" loading="lazy" />
+        </div>
+      </div>
+      <div class="w-full md:w-2/3 flex flex-col gap-md">
+        <span class="material-symbols-outlined text-primary-container text-5xl">format_quote</span>
+        <p class="font-body-lg text-body-lg italic text-on-surface leading-relaxed" data-i18n="mother.quote">
+          «Мы не смирились. Врачи в России от нас отказались, но Егор ждёт и верит.
+          Ваша помощь — это дар жизни для нашего сына. Мы верим в добро и надеемся на чудо.»
+        </p>
+        <div class="mt-xs">
+          <p class="font-headline-sm text-headline-sm text-primary" data-i18n="mother.name">Мария, мама Егора</p>
+          <p class="font-label-md text-label-md text-on-surface-variant" data-i18n="mother.city">Якутск, Россия</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Goals ===== -->
+<section class="py-xl border-t border-primary-container/15" id="goals"
+  style="background-image:url('assets/backgrounds/goals-bg.png');background-size:cover;background-position:center;">
+  <div class="px-gutter max-w-container-max mx-auto">
+    <h2 class="text-center font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-lg reveal" data-i18n="goals.title">
+      На что пойдут средства
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+      <div class="bg-primary-container p-md rounded-xl soft-shadow hover-shadow transition-transform duration-300 hover:scale-105 flex flex-col items-center text-center border border-white/10 reveal">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-sm text-white"><span class="material-symbols-outlined text-3xl">biotech</span></div>
+        <h3 class="font-headline-sm text-headline-sm text-white mb-xs" data-i18n="goals.card1_title">Этапы 1 и 2</h3>
+        <p class="font-body-md text-body-md text-white/90 flex-grow" data-i18n="goals.card1_desc">Удаление бластов из крови и костного мозга в китайской клинике.</p>
+      </div>
+      <div class="bg-primary-container p-md rounded-xl soft-shadow hover-shadow transition-transform duration-300 hover:scale-105 flex flex-col items-center text-center border border-white/10 reveal">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-sm text-white"><span class="material-symbols-outlined text-3xl">medication</span></div>
+        <h3 class="font-headline-sm text-headline-sm text-white mb-xs" data-i18n="goals.card2_title">Медикаменты</h3>
+        <p class="font-body-md text-body-md text-white/90 flex-grow" data-i18n="goals.card2_desc">Специфическая терапия для преодоления мутации FLT3-ITD.</p>
+      </div>
+      <div class="bg-primary-container p-md rounded-xl soft-shadow hover-shadow transition-transform duration-300 hover:scale-105 flex flex-col items-center text-center border border-white/10 reveal">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-sm text-white"><span class="material-symbols-outlined text-3xl">flight_takeoff</span></div>
+        <h3 class="font-headline-sm text-headline-sm text-white mb-xs" data-i18n="goals.card3_title">Логистика</h3>
+        <p class="font-body-md text-body-md text-white/90 flex-grow" data-i18n="goals.card3_desc">Транспортировка в Пекин и сопутствующие медицинские расходы.</p>
+      </div>
+    </div>
+    <p class="text-center mt-lg font-body-md text-on-surface-variant italic reveal bg-white/50 backdrop-blur-sm rounded-xl p-sm max-w-3xl mx-auto" data-i18n="goals.note">
+      Общая стоимость лечения: $100,000. Вопрос о повторной трансплантации донорских клеток будет решаться по итогам первых этапов.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Donate ===== -->
+<section class="py-xl border-t border-primary-container/15 bg-[#F7FAF8]" id="donate">
+  <div class="px-gutter max-w-container-max mx-auto">
+    <div class="max-w-2xl mx-auto reveal">
+      <h2 class="text-center font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-md" data-i18n="donate.title">Помочь сейчас</h2>
+      <p class="text-center font-body-md text-body-md text-on-surface-variant mb-lg" data-i18n="donate.subtitle">Поддержать Егора можно прямым переводом по реквизитам ниже — из России или из любой другой страны</p>
+
+      <div class="bg-white rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/10 overflow-hidden">
+        <div class="flex border-b border-outline-variant/20" id="donate-tabs">
+          <button class="flex-1 py-md font-label-md text-label-md transition-colors bg-primary-container text-on-primary" data-tab="rf" data-i18n="donate.tab_rf">Для РФ банков</button>
+          <button class="flex-1 py-md font-label-md text-label-md transition-colors hover:bg-surface-container-low" data-tab="intl" data-i18n="donate.tab_intl">Для иностранных переводов</button>
+        </div>
+
+        <div class="p-md md:p-lg">
+          <!-- RF -->
+          <div class="space-y-md" data-panel="rf">
+            <div class="flex flex-col gap-sm">
+              <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.card_number">Номер карты</span>
+              <div class="flex items-center justify-between bg-surface-container-low p-md rounded-lg border border-outline-variant/20">
+                <span class="font-headline-sm text-on-surface" data-copy-value>2202 2053 1430 8385</span>
+                <button class="copy-btn flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать номер карты">
+                  <span class="material-symbols-outlined text-[20px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+              <div class="flex flex-col gap-sm">
+                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.phone_sbp">Телефон (СБП)</span>
+                <div class="flex items-center justify-between bg-surface-container-low p-md rounded-lg border border-outline-variant/20">
+                  <span class="font-body-lg text-on-surface" data-copy-value>+7 964 420 97 79</span>
+                  <button class="copy-btn flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать телефон">
+                    <span class="material-symbols-outlined text-[20px]">content_copy</span>
+                  </button>
+                </div>
+              </div>
+              <div class="flex flex-col gap-sm">
+                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.bank">Банк</span>
+                <div class="flex items-center bg-surface-container-low p-md rounded-lg border border-outline-variant/20 h-full">
+                  <p class="font-body-lg text-on-surface" data-i18n="donate.bank_name">Сбербанк</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant italic mt-md" data-i18n="donate.recipient_rf">Получатель: Барахтенко Мария Серафимовна (мама Егора)</p>
+          </div>
+
+          <!-- INTL -->
+          <div class="hidden space-y-md" data-panel="intl">
+
+            <!-- Выбор способа -->
+            <div>
+              <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_choose">Выберите способ</span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm mt-sm" id="intl-choice" role="tablist" aria-label="Способ перевода">
+                <button type="button" role="tab" id="intl-tab-link" aria-controls="intl-pane-link" aria-selected="true"
+                        data-intl-choice="link"
+                        class="intl-opt flex items-start gap-sm text-left p-md rounded-lg border-2 transition-colors bg-primary-container text-on-primary border-primary-container">
+                  <span class="material-symbols-outlined text-[22px] flex-shrink-0">credit_card</span>
+                  <span class="min-w-0 flex-grow">
+                    <span class="block font-label-md text-label-md font-bold" data-i18n="donate.intl_opt_link_title">Онлайн картой</span>
+                    <span class="block text-[12px] font-label-md opacity-90 mt-[3px]" data-i18n="donate.intl_opt_link_sub">Только в евро (EUR)</span>
+                  </span>
+                </button>
+                <button type="button" role="tab" id="intl-tab-bank" aria-controls="intl-pane-bank" aria-selected="false"
+                        data-intl-choice="bank"
+                        class="intl-opt flex items-start gap-sm text-left p-md rounded-lg border-2 transition-colors bg-white text-on-surface border-outline-variant/30 hover:bg-surface-container-low">
+                  <span class="material-symbols-outlined text-[22px] flex-shrink-0">account_balance</span>
+                  <span class="min-w-0 flex-grow">
+                    <span class="block font-label-md text-label-md font-bold" data-i18n="donate.intl_opt_bank_title">Банковский перевод</span>
+                    <span class="block text-[12px] font-label-md opacity-90 mt-[3px]" data-i18n="donate.intl_opt_bank_sub">Любая валюта</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Пане 1: онлайн-платформа -->
+            <div role="tabpanel" id="intl-pane-link" aria-labelledby="intl-tab-link" data-intl-pane="link"
+                 class="rounded-lg border border-primary-container/40 bg-primary-container/10 p-md">
+              <p class="font-headline-sm text-headline-sm text-primary" data-i18n="donate.intl_platform_title">Пожертвование картой на PavelAndreev.ORG</p>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-xs" data-i18n="donate.intl_platform_desc">
+                Международная краудфандинговая платформа. Пожертвование в евро из любой страны за пару минут.
+                Платформа не удерживает процент со сбора — только банковская комиссия за транзакцию.
+              </p>
+              <div class="flex flex-wrap gap-xs mt-sm">
+                <span class="text-[11px] font-label-md bg-white text-on-surface-variant px-sm py-[3px] rounded-full border border-outline-variant/30">Visa</span>
+                <span class="text-[11px] font-label-md bg-white text-on-surface-variant px-sm py-[3px] rounded-full border border-outline-variant/30">Mastercard</span>
+                <span class="text-[11px] font-label-md bg-white text-on-surface-variant px-sm py-[3px] rounded-full border border-outline-variant/30">PayPal</span>
+                <span class="text-[11px] font-label-md bg-white text-on-surface-variant px-sm py-[3px] rounded-full border border-outline-variant/30">Apple&nbsp;Pay</span>
+                <span class="text-[11px] font-label-md bg-white text-on-surface-variant px-sm py-[3px] rounded-full border border-outline-variant/30">Google&nbsp;Pay</span>
+                <span class="text-[11px] font-label-md bg-white text-on-surface-variant px-sm py-[3px] rounded-full border border-outline-variant/30">Revolut</span>
+                <span class="text-[11px] font-label-md bg-white text-on-surface-variant px-sm py-[3px] rounded-full border border-outline-variant/30">IBAN</span>
+              </div>
+              <div class="flex items-start gap-xs bg-white/70 border border-outline-variant/20 rounded-lg p-sm mt-md">
+                <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">euro</span>
+                <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n="donate.intl_platform_eur_note">
+                  Сумма списывается только в евро. Если у вас карта в другой валюте, конвертацию сделает ваш банк по своему курсу.
+                </p>
+              </div>
+              <a href="https://pavelandreev.org/ru/campaign/pomogite-mne-vyzhit-egor-barahtenko" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-xs bg-primary-container text-on-primary px-md py-sm rounded-lg btn-hover-scale shadow-sm font-label-md text-label-md mt-md">
+                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                <span data-i18n="donate.intl_platform_cta">Перейти к пожертвованию</span>
+                <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+              </a>
+            </div>
+
+            <!-- Пане 2: SWIFT-реквизиты -->
+            <div role="tabpanel" id="intl-pane-bank" aria-labelledby="intl-tab-bank" data-intl-pane="bank" class="hidden space-y-md">
+
+              <div>
+                <p class="font-headline-sm text-headline-sm text-primary" data-i18n="donate.intl_swift_title">SWIFT-перевод на счёт в долларах США (USD)</p>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-xs" data-i18n="donate.intl_swift_desc">
+                  Личный счёт Егора в Международном банке Таджикистана. Входящий перевод зачисляется без комиссии банка получателя.
+                </p>
+              </div>
+
+              <div class="flex items-start gap-xs bg-secondary-container/60 border border-primary-container/30 rounded-lg p-sm">
+                <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">currency_exchange</span>
+                <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n="donate.intl_any_currency">
+                  Платить можно из любой валюты — рубли, евро, юани, тенге. Ваш банк конвертирует сумму в доллары при отправке, счёт зачисления всегда в USD.
+                </p>
+              </div>
+
+              <div class="flex flex-col gap-sm">
+                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_beneficiary">Beneficiary / Получатель</span>
+                <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20">
+                  <span class="font-body-lg text-on-surface break-words" data-copy-value>BARAKHTENKO EGOR ANDREEVICH</span>
+                  <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать имя получателя">
+                    <span class="material-symbols-outlined text-[20px]">content_copy</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-sm">
+                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_account">Beneficiary’s account (USD)</span>
+                <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20">
+                  <span class="font-headline-sm text-[18px] md:text-headline-sm text-on-surface tracking-tight" data-copy-value>20228840791708200001</span>
+                  <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать номер счёта">
+                    <span class="material-symbols-outlined text-[20px]">content_copy</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                <div class="flex flex-col gap-sm">
+                  <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_bank">Beneficiary’s bank / Банк получателя</span>
+                  <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20 h-full">
+                    <span class="font-body-lg text-on-surface break-words" data-copy-value>CJSC "International Bank of Tajikistan"</span>
+                    <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать название банка">
+                      <span class="material-symbols-outlined text-[20px]">content_copy</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-sm">
+                  <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT / BIC</span>
+                  <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20 h-full">
+                    <span class="font-headline-sm text-on-surface" data-copy-value>IBTKTJ22</span>
+                    <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT">
+                      <span class="material-symbols-outlined text-[20px]">content_copy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-sm">
+                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_bank_address">Bank address / Адрес банка</span>
+                <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20">
+                  <span class="font-body-lg text-on-surface break-words" data-copy-value>27, BUKHORO STR., DUSHANBE, 734042, TAJIKISTAN</span>
+                  <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать адрес банка">
+                    <span class="material-symbols-outlined text-[20px]">content_copy</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Банк-корреспондент -->
+              <div class="pt-xs">
+                <div class="flex items-start gap-xs bg-secondary-container/60 border border-primary-container/30 rounded-lg p-sm mb-md">
+                  <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">info</span>
+                  <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n="donate.intl_corr_note">
+                    Обязательно укажите банк-корреспондент — без него платёж не дойдёт. Выберите любой из двух, ваш банк подскажет удобный маршрут.
+                  </p>
+                </div>
+
+                <div class="space-y-md">
+                  <!-- Корреспондент 1 -->
+                  <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-md flex flex-col gap-sm">
+                    <div class="flex items-center gap-xs">
+                      <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0">1</span>
+                      <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_bank">Банк-корреспондент</span>
+                    </div>
+                    <div>
+                      <p class="font-body-lg text-on-surface leading-snug">JSC HALYK SAVINGS BANK OF KAZAKHSTAN</p>
+                      <p class="font-label-md text-label-md text-on-surface-variant">ALMATY, KAZAKHSTAN</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+                      <div class="flex flex-col gap-xs">
+                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT</span>
+                        <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
+                          <span class="font-body-md text-on-surface" data-copy-value>HSBKKZKX</span>
+                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT банка-корреспондента">
+                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-xs">
+                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_account">Счёт в банке-корреспонденте</span>
+                        <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
+                          <span class="font-body-md text-[15px] text-on-surface" data-copy-value>KZ30601A011000042131</span>
+                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать счёт в банке-корреспонденте">
+                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Корреспондент 2 -->
+                  <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-md flex flex-col gap-sm">
+                    <div class="flex items-center gap-xs">
+                      <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0">2</span>
+                      <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_bank">Банк-корреспондент</span>
+                    </div>
+                    <div>
+                      <p class="font-body-lg text-on-surface leading-snug">JOINT-STOCK COMPANY 'ASAKABANK'</p>
+                      <p class="font-label-md text-label-md text-on-surface-variant">TASHKENT, UZBEKISTAN</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+                      <div class="flex flex-col gap-xs">
+                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT</span>
+                        <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
+                          <span class="font-body-md text-on-surface" data-copy-value>ASBKUZ22</span>
+                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT банка-корреспондента">
+                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-xs">
+                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_account">Счёт в банке-корреспонденте</span>
+                        <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
+                          <span class="font-body-md text-[15px] text-on-surface" data-copy-value>21002840300090274001</span>
+                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать счёт в банке-корреспонденте">
+                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Памятка -->
+              <div class="pt-xs">
+                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_hints_title">Важно при заполнении перевода</span>
+                <ul class="mt-sm space-y-xs font-body-md text-[14px] leading-relaxed text-on-surface-variant">
+                  <li class="flex gap-xs"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">check_circle</span><span data-i18n="donate.intl_hint1">Валюта зачисления — USD. Полный формат SWIFT-кодов: IBTKTJ22XXX, HSBKKZKXXXX, ASBKUZ22XXX.</span></li>
+                  <li class="flex gap-xs"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">check_circle</span><span data-i18n="donate.intl_hint2">Назначение платежа: «Private transfer, financial aid for medical treatment» (некоммерческий перевод).</span></li>
+                  <li class="flex gap-xs"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">check_circle</span><span data-i18n="donate.intl_hint3">Если банк запросит адрес получателя: Egor Barakhtenko, Yakutsk, Russia — точный адрес пришлём по запросу в разделе «Контакты».</span></li>
+                  <li class="flex gap-xs"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">check_circle</span><span data-i18n="donate.intl_hint4">Комиссию за перевод берёт банк-отправитель — уточните её заранее, чтобы до Егора дошла полная сумма.</span></li>
+                </ul>
+              </div>
+
+              <p class="text-xs text-on-surface-variant italic" data-i18n="donate.recipient_intl">Получатель: Барахтенко Егор Андреевич (личный счёт Егора)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-lg flex items-center justify-center gap-xs text-secondary bg-[#F3F6F2] py-xs px-sm rounded-full w-max max-w-full mx-auto">
+        <span class="material-symbols-outlined text-sm flex-shrink-0">verified_user</span>
+        <span class="font-label-md text-[12px] text-center" data-i18n="donate.badge">Прямой перевод — 100% средств пойдут на лечение</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Documents ===== -->
+<section class="py-xl border-t border-primary-container/15" id="documents"
+  style="background-image:url('assets/backgrounds/documents-bg.png');background-size:cover;background-position:center;">
+  <div class="px-gutter max-w-container-max mx-auto">
+    <div class="text-center mb-lg bg-white/80 backdrop-blur-md p-md rounded-xl w-full border border-outline-variant/30 reveal">
+      <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-xs" data-i18n="docs.title">Прозрачность наших намерений</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="docs.subtitle">Мы открыто публикуем все документы, подтверждающие тяжесть сложившейся ситуации</p>
+    </div>
+    <div class="flex flex-col md:flex-row justify-center items-center gap-md mt-md reveal">
+      <button id="open-docs" class="flex items-center gap-sm bg-white px-md py-sm rounded-xl soft-shadow hover-shadow transition-transform duration-300 hover:scale-105 text-primary font-label-md text-label-md group border border-outline-variant/20">
+        <span class="material-symbols-outlined text-primary-container group-hover:text-primary transition-colors">description</span>
+        <span data-i18n="docs.button">Медицинские выписки</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="py-xl border-t border-primary-container/15 bg-surface-container-low" id="contact">
+  <div class="px-gutter max-w-container-max mx-auto">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-xs" data-i18n="contact.title">Связаться с нами</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-lg" data-i18n="contact.subtitle">Если у вас есть вопросы — свяжитесь с мамой Егора любым удобным способом</p>
+
+      <div class="bg-white rounded-xl soft-shadow border border-outline-variant/10 p-lg">
+        <p class="font-headline-sm text-headline-sm text-primary" data-i18n="contact.name">Мария, мама Егора</p>
+        <a href="tel:+79644209779" class="inline-block font-body-lg text-body-lg text-on-surface hover:text-primary transition-colors mt-xs">+7 964 420 97 79</a>
+
+        <div class="flex flex-wrap justify-center gap-sm mt-md">
+          <a class="inline-flex items-center gap-xs bg-primary-container text-on-primary px-md py-sm rounded-lg btn-hover-scale shadow-sm font-label-md text-label-md" href="https://t.me/+79644209779" target="_blank" rel="noopener" aria-label="Telegram">
+            <span class="material-symbols-outlined text-[20px]">send</span> Telegram
+          </a>
+          <a class="inline-flex items-center gap-xs border-2 border-primary-container text-primary px-md py-sm rounded-lg btn-hover-scale font-label-md text-label-md" href="https://wa.me/79644209779" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <span class="material-symbols-outlined text-[20px]">chat</span> WhatsApp
+          </a>
+          <a class="inline-flex items-center gap-xs border-2 border-primary-container text-primary px-md py-sm rounded-lg btn-hover-scale font-label-md text-label-md" href="tel:+79644209779" aria-label="Позвонить">
+            <span class="material-symbols-outlined text-[20px]">call</span> <span data-i18n="contact.call">Позвонить</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="w-full py-lg px-gutter border-t border-primary-container/15 bg-[#EBF0E9]">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <div>
+      <div class="font-headline-sm text-headline-sm text-primary mb-sm" data-i18n="footer.brand">Благотворительный сбор для Егора</div>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-md" data-i18n="footer.tagline">Каждый ребёнок заслуживает прожить жизнь благодаря, а не вопреки…</p>
+    </div>
+    <div class="flex flex-col md:items-end font-label-md text-label-md space-y-sm">
+      <a class="text-on-surface-variant hover:text-primary opacity-80 hover:opacity-100 transition-opacity" href="#donate" data-i18n="footer.requisites">Реквизиты</a>
+      <a class="text-on-surface-variant hover:text-primary opacity-80 hover:opacity-100 transition-opacity" href="#documents" data-i18n="footer.docs">Справки</a>
+      <a class="text-on-surface-variant hover:text-primary opacity-80 hover:opacity-100 transition-opacity" href="#contact" data-i18n="nav.contact">Контакты</a>
+      <div class="pt-sm text-xs text-on-surface-variant/60" data-i18n="footer.made">Сделано с надеждой на чудо</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Documents modal ===== -->
+<div id="docs-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 p-4">
+  <div class="bg-surface rounded-2xl shadow-2xl w-full max-w-3xl max-h-[88vh] flex flex-col overflow-hidden">
+    <div class="flex items-center justify-between px-md py-sm border-b border-outline-variant/20 bg-white">
+      <h3 class="font-headline-sm text-headline-sm text-primary" data-i18n="docs.button">Медицинские выписки</h3>
+      <button id="docs-close" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors" aria-label="Закрыть">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="p-md overflow-y-auto" id="docs-list">
+      <!-- filled by JS from DOCUMENTS list -->
+    </div>
+  </div>
+</div>
+
+<!-- ===== Lightbox ===== -->
+<div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 p-4">
+  <button id="lightbox-close" class="absolute top-4 right-4 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10" aria-label="Закрыть"><span class="material-symbols-outlined text-4xl">close</span></button>
+  <button id="lightbox-prev" class="absolute left-2 md:left-6 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10" aria-label="Назад"><span class="material-symbols-outlined text-4xl">chevron_left</span></button>
+  <img id="lightbox-img" class="max-h-[85vh] max-w-[90vw] rounded-xl object-contain shadow-2xl" alt="Фото Егора" />
+  <button id="lightbox-next" class="absolute right-2 md:right-6 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10" aria-label="Вперёд"><span class="material-symbols-outlined text-4xl">chevron_right</span></button>
+</div>
+
+<!-- ===== Copy toast ===== -->
+<div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 bg-primary text-on-primary px-md py-sm rounded-full shadow-lg font-label-md text-label-md z-[110] flex items-center gap-xs pointer-events-none">
+  <span class="material-symbols-outlined text-[18px]">check_circle</span><span id="toast-text">Скопировано</span>
+</div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
