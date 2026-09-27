@@ -496,6 +496,10 @@
             <!-- Пане 1: онлайн-платформа -->
             <div role="tabpanel" id="intl-pane-link" aria-labelledby="intl-tab-link" data-intl-pane="link"
                  class="rounded-lg border border-primary-container/40 bg-primary-container/10 p-md">
+              <div class="flex items-start gap-xs bg-primary-container text-on-primary rounded-lg p-sm mb-md">
+                <span class="material-symbols-outlined text-[20px] flex-shrink-0">recommend</span>
+                <p class="font-body-md text-[14px] leading-relaxed"><span class="font-bold" data-i18n="donate.intl_recommended">Рекомендуем этот способ</span>. <span data-i18n="donate.intl_rec_note">Самый простой путь: всё работает как обычная оплата картой в интернете и занимает пару минут — реквизиты и коды вводить не нужно.</span></p>
+              </div>
               <p class="font-headline-sm text-headline-sm text-primary" data-i18n="donate.intl_platform_title">Пожертвование картой на PavelAndreev.ORG</p>
               <p class="font-body-md text-body-md text-on-surface-variant mt-xs" data-i18n="donate.intl_platform_desc">
                 Международная краудфандинговая платформа. Пожертвование в евро из любой страны за пару минут.
@@ -532,150 +536,189 @@
                 <p class="font-body-md text-body-md text-on-surface-variant mt-xs" data-i18n="donate.intl_swift_desc">
                   Личный счёт Егора в Международном банке Таджикистана. Входящий перевод зачисляется без комиссии банка получателя.
                 </p>
+                <p class="font-body-md text-[14px] leading-relaxed text-on-surface-variant mt-xs" data-i18n="donate.guide_lead">SWIFT-перевод — это обычный международный банковский перевод. Его можно сделать в приложении банка, в интернет-банке, в отделении или по телефону. Ниже — общие шаги: под каждым пунктом уже готово то, что нужно скопировать и вставить.</p>
               </div>
 
-              <div class="flex items-start gap-xs bg-secondary-container/60 border border-primary-container/30 rounded-lg p-sm">
-                <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">currency_exchange</span>
-                <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n="donate.intl_any_currency">
-                  Платить можно из любой валюты — рубли, евро, юани, тенге. Ваш банк конвертирует сумму в доллары при отправке, счёт зачисления всегда в USD.
-                </p>
+              <div class="flex items-start gap-xs bg-secondary-container/40 border border-primary-container/30 rounded-lg p-sm">
+                <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">checklist</span>
+                <p class="font-body-md text-[14px] leading-relaxed text-on-surface"><span class="font-bold" data-i18n="donate.guide_ready_title">Что приготовить заранее</span>: <span data-i18n="donate.guide_ready">реквизиты выше (их удобно копировать кнопкой), документ для входа в банк и сведения о комиссии за международный перевод — её размер лучше уточнить в своём банке.</span></p>
               </div>
 
-              <div class="flex flex-col gap-sm">
-                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_beneficiary">Beneficiary / Получатель</span>
-                <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20">
-                  <span class="font-body-lg text-on-surface break-words" data-copy-value>BARAKHTENKO EGOR ANDREEVICH</span>
-                  <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать имя получателя">
-                    <span class="material-symbols-outlined text-[20px]">content_copy</span>
-                  </button>
-                </div>
-              </div>
-
-              <div class="flex flex-col gap-sm">
-                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_account">Beneficiary’s account (USD)</span>
-                <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20">
-                  <span class="font-headline-sm text-[18px] md:text-headline-sm text-on-surface tracking-tight" data-copy-value>20228840791708200001</span>
-                  <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать номер счёта">
-                    <span class="material-symbols-outlined text-[20px]">content_copy</span>
-                  </button>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
-                <div class="flex flex-col gap-sm">
-                  <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_bank">Beneficiary’s bank / Банк получателя</span>
-                  <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20 h-full">
-                    <span class="font-body-lg text-on-surface break-words" data-copy-value>CJSC "International Bank of Tajikistan"</span>
-                    <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать название банка">
-                      <span class="material-symbols-outlined text-[20px]">content_copy</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-sm">
-                  <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT / BIC</span>
-                  <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20 h-full">
-                    <span class="font-headline-sm text-on-surface" data-copy-value>IBTKTJ22</span>
-                    <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT">
-                      <span class="material-symbols-outlined text-[20px]">content_copy</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex flex-col gap-sm">
-                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_bank_address">Bank address / Адрес банка</span>
-                <div class="flex items-center justify-between gap-sm bg-surface-container-low p-md rounded-lg border border-outline-variant/20">
-                  <span class="font-body-lg text-on-surface break-words" data-copy-value>27, BUKHORO STR., DUSHANBE, 734042, TAJIKISTAN</span>
-                  <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать адрес банка">
-                    <span class="material-symbols-outlined text-[20px]">content_copy</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Банк-корреспондент -->
-              <div class="pt-xs">
-                <div class="flex items-start gap-xs bg-secondary-container/60 border border-primary-container/30 rounded-lg p-sm mb-md">
-                  <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">info</span>
-                  <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n="donate.intl_corr_note">
-                    Обязательно укажите банк-корреспондент — без него платёж не дойдёт. Выберите любой из двух, ваш банк подскажет удобный маршрут.
-                  </p>
-                </div>
-
-                <div class="space-y-md">
-                  <!-- Корреспондент 1 -->
-                  <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-md flex flex-col gap-sm">
-                    <div class="flex items-center gap-xs">
-                      <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0">1</span>
-                      <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_bank">Банк-корреспондент</span>
+              <!-- Пошаговая инструкция с реквизитами -->
+              <ol class="space-y-md">
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">1</span>
+                  <div class="flex-grow min-w-0"><p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s1"></p></div>
+                </li>
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">2</span>
+                  <div class="flex-grow min-w-0 space-y-sm">
+                    <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s2"></p>
+                    <div class="flex items-start gap-xs bg-secondary-container/40 border border-primary-container/30 rounded-lg p-sm">
+                      <span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0">currency_exchange</span>
+                      <p class="font-body-md text-[13px] leading-relaxed text-on-surface" data-i18n="donate.intl_any_currency">Платить можно из любой валюты — рубли, евро, юани, тенге. Ваш банк конвертирует сумму в доллары при отправке, счёт зачисления всегда в USD.</p>
                     </div>
-                    <div>
-                      <p class="font-body-lg text-on-surface leading-snug">JSC HALYK SAVINGS BANK OF KAZAKHSTAN</p>
-                      <p class="font-label-md text-label-md text-on-surface-variant">ALMATY, KAZAKHSTAN</p>
+                  </div>
+                </li>
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">3</span>
+                  <div class="flex-grow min-w-0 space-y-sm">
+                    <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s3"></p>
+                    <div class="flex flex-col gap-xs">
+                      <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_beneficiary">Beneficiary / Получатель</span>
+                      <div class="flex items-center justify-between gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant/20">
+                        <span class="font-body-lg text-on-surface break-words" data-copy-value>BARAKHTENKO EGOR ANDREEVICH</span>
+                        <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать имя получателя"><span class="material-symbols-outlined text-[20px]">content_copy</span></button>
+                      </div>
                     </div>
+                  </div>
+                </li>
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">4</span>
+                  <div class="flex-grow min-w-0 space-y-sm">
+                    <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s4"></p>
+                    <div class="flex flex-col gap-xs">
+                      <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_account">Beneficiary’s account (USD)</span>
+                      <div class="flex items-center justify-between gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant/20">
+                        <span class="font-headline-sm text-[18px] md:text-headline-sm text-on-surface tracking-tight" data-copy-value>20228840791708200001</span>
+                        <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать номер счёта"><span class="material-symbols-outlined text-[20px]">content_copy</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">5</span>
+                  <div class="flex-grow min-w-0 space-y-sm">
+                    <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s5"></p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
                       <div class="flex flex-col gap-xs">
-                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT</span>
-                        <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
-                          <span class="font-body-md text-on-surface" data-copy-value>HSBKKZKX</span>
-                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT банка-корреспондента">
-                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
-                          </button>
+                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_bank">Beneficiary’s bank / Банк получателя</span>
+                        <div class="flex items-center justify-between gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant/20 h-full">
+                          <span class="font-body-lg text-on-surface break-words" data-copy-value>CJSC "International Bank of Tajikistan"</span>
+                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать название банка"><span class="material-symbols-outlined text-[20px]">content_copy</span></button>
                         </div>
                       </div>
                       <div class="flex flex-col gap-xs">
-                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_account">Счёт в банке-корреспонденте</span>
-                        <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
-                          <span class="font-body-md text-[15px] text-on-surface" data-copy-value>KZ30601A011000042131</span>
-                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать счёт в банке-корреспонденте">
-                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
-                          </button>
+                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT / BIC</span>
+                        <div class="flex items-center justify-between gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant/20 h-full">
+                          <span class="font-headline-sm text-on-surface" data-copy-value>IBTKTJ22</span>
+                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT"><span class="material-symbols-outlined text-[20px]">content_copy</span></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-xs">
+                      <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_bank_address">Bank address / Адрес банка</span>
+                      <div class="flex items-center justify-between gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant/20">
+                        <span class="font-body-lg text-on-surface break-words" data-copy-value>27, BUKHORO STR., DUSHANBE, 734042, TAJIKISTAN</span>
+                        <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать адрес банка"><span class="material-symbols-outlined text-[20px]">content_copy</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">6</span>
+                  <div class="flex-grow min-w-0 space-y-sm">
+                    <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s6"></p>
+                    <div class="flex items-start gap-xs bg-secondary-container/40 border border-primary-container/30 rounded-lg p-sm">
+                      <span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0">info</span>
+                      <p class="font-body-md text-[13px] leading-relaxed text-on-surface" data-i18n="donate.intl_corr_note">Обязательно укажите банк-корреспондент — без него платёж не дойдёт. Выберите любой из двух, ваш банк подскажет удобный маршрут.</p>
+                    </div>
+                    <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-sm flex flex-col gap-sm">
+                      <div class="flex items-center gap-xs">
+                        <span class="w-5 h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[11px] font-bold flex-shrink-0">1</span>
+                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_bank">Банк-корреспондент</span>
+                      </div>
+                      <div>
+                        <p class="font-body-lg text-on-surface leading-snug">JSC HALYK SAVINGS BANK OF KAZAKHSTAN</p>
+                        <p class="font-label-md text-label-md text-on-surface-variant">ALMATY, KAZAKHSTAN</p>
+                      </div>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+                        <div class="flex flex-col gap-xs">
+                          <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT</span>
+                          <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
+                            <span class="font-body-md text-on-surface" data-copy-value>HSBKKZKX</span>
+                            <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT банка-корреспондента"><span class="material-symbols-outlined text-[18px]">content_copy</span></button>
+                          </div>
+                        </div>
+                        <div class="flex flex-col gap-xs">
+                          <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_account">Счёт в банке-корреспонденте</span>
+                          <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
+                            <span class="font-body-md text-[15px] text-on-surface" data-copy-value>KZ30601A011000042131</span>
+                            <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать счёт в банке-корреспонденте"><span class="material-symbols-outlined text-[18px]">content_copy</span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-sm flex flex-col gap-sm">
+                      <div class="flex items-center gap-xs">
+                        <span class="w-5 h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[11px] font-bold flex-shrink-0">2</span>
+                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_bank">Банк-корреспондент</span>
+                      </div>
+                      <div>
+                        <p class="font-body-lg text-on-surface leading-snug">JOINT-STOCK COMPANY 'ASAKABANK'</p>
+                        <p class="font-label-md text-label-md text-on-surface-variant">TASHKENT, UZBEKISTAN</p>
+                      </div>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+                        <div class="flex flex-col gap-xs">
+                          <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT</span>
+                          <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
+                            <span class="font-body-md text-on-surface" data-copy-value>ASBKUZ22</span>
+                            <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT банка-корреспондента"><span class="material-symbols-outlined text-[18px]">content_copy</span></button>
+                          </div>
+                        </div>
+                        <div class="flex flex-col gap-xs">
+                          <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_account">Счёт в банке-корреспонденте</span>
+                          <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
+                            <span class="font-body-md text-[15px] text-on-surface" data-copy-value>21002840300090274001</span>
+                            <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать счёт в банке-корреспонденте"><span class="material-symbols-outlined text-[18px]">content_copy</span></button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  <!-- Корреспондент 2 -->
-                  <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-md flex flex-col gap-sm">
-                    <div class="flex items-center gap-xs">
-                      <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0">2</span>
-                      <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_bank">Банк-корреспондент</span>
-                    </div>
-                    <div>
-                      <p class="font-body-lg text-on-surface leading-snug">JOINT-STOCK COMPANY 'ASAKABANK'</p>
-                      <p class="font-label-md text-label-md text-on-surface-variant">TASHKENT, UZBEKISTAN</p>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
-                      <div class="flex flex-col gap-xs">
-                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider">SWIFT</span>
-                        <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
-                          <span class="font-body-md text-on-surface" data-copy-value>ASBKUZ22</span>
-                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать SWIFT банка-корреспондента">
-                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
-                          </button>
-                        </div>
-                      </div>
-                      <div class="flex flex-col gap-xs">
-                        <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_corr_account">Счёт в банке-корреспонденте</span>
-                        <div class="flex items-center justify-between gap-xs bg-white p-sm rounded-lg border border-outline-variant/20">
-                          <span class="font-body-md text-[15px] text-on-surface" data-copy-value>21002840300090274001</span>
-                          <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать счёт в банке-корреспонденте">
-                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
-                          </button>
-                        </div>
+                </li>
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">7</span>
+                  <div class="flex-grow min-w-0 space-y-sm">
+                    <p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s7"></p>
+                    <div class="flex flex-col gap-xs">
+                      <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_purpose">Назначение платежа / Purpose</span>
+                      <div class="flex items-center justify-between gap-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant/20">
+                        <span class="font-body-md text-on-surface break-words" data-copy-value>Private transfer, financial aid for medical treatment</span>
+                        <button class="copy-btn flex-shrink-0 flex items-center justify-center text-primary hover:text-primary-container transition-colors" aria-label="Копировать назначение платежа"><span class="material-symbols-outlined text-[20px]">content_copy</span></button>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </li>
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">8</span>
+                  <div class="flex-grow min-w-0"><p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s8"></p></div>
+                </li>
+                <li class="flex gap-sm items-start">
+                  <span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[12px] font-bold flex-shrink-0 mt-[2px]">9</span>
+                  <div class="flex-grow min-w-0"><p class="font-body-md text-[14px] leading-relaxed text-on-surface" data-i18n-html="donate.guide_s9"></p></div>
+                </li>
+              </ol>
 
-              <!-- Памятка -->
-              <div class="pt-xs">
-                <span class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.intl_hints_title">Важно при заполнении перевода</span>
+              <div class="pt-md border-t border-outline-variant/30">
+                <p class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.guide_map_title">Как наши поля называются в банке</p>
                 <ul class="mt-sm space-y-xs font-body-md text-[14px] leading-relaxed text-on-surface-variant">
-                  <li class="flex gap-xs"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">check_circle</span><span data-i18n="donate.intl_hint1">Валюта зачисления — USD. Полный формат SWIFT-кодов: IBTKTJ22XXX, HSBKKZKXXXX, ASBKUZ22XXX.</span></li>
-                  <li class="flex gap-xs"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">check_circle</span><span data-i18n="donate.intl_hint2">Назначение платежа: «Private transfer, financial aid for medical treatment» (некоммерческий перевод).</span></li>
-                  <li class="flex gap-xs"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">check_circle</span><span data-i18n="donate.intl_hint3">Если банк запросит адрес получателя: Egor Barakhtenko, Yakutsk, Russia — точный адрес пришлём по запросу в разделе «Контакты».</span></li>
-                  <li class="flex gap-xs"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">check_circle</span><span data-i18n="donate.intl_hint4">Комиссию за перевод берёт банк-отправитель — уточните её заранее, чтобы до Егора дошла полная сумма.</span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">chevron_right</span><span data-i18n-html="donate.guide_map1"></span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">chevron_right</span><span data-i18n-html="donate.guide_map2"></span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">chevron_right</span><span data-i18n-html="donate.guide_map3"></span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">chevron_right</span><span data-i18n-html="donate.guide_map4"></span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">chevron_right</span><span data-i18n-html="donate.guide_map5"></span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-primary-container text-[18px] flex-shrink-0">chevron_right</span><span data-i18n-html="donate.guide_map6"></span></li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="text-xs font-label-md text-on-surface-variant uppercase tracking-wider" data-i18n="donate.guide_tips_title">Если что-то идёт не так</p>
+                <ul class="mt-sm space-y-xs font-body-md text-[14px] leading-relaxed text-on-surface-variant">
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0">help</span><span data-i18n-html="donate.guide_tip1"></span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0">help</span><span data-i18n-html="donate.guide_tip2"></span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0">help</span><span data-i18n-html="donate.guide_tip3"></span></li>
+                  <li class="flex gap-xs items-start"><span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0">help</span><span data-i18n-html="donate.guide_tip4"></span></li>
                 </ul>
               </div>
 
